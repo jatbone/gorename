@@ -25,7 +25,7 @@ The main entry point for the application is in `cmd/gorename/main.go`. The tool 
 
 - `-pattern`: (Required) Regex pattern to match filenames.
 - `-replacement`: (Required) Replacement format for filenames.
-- `-path`: (Optional) Path to the files. Defaults to the current directory.
+- `-root`: (Optional) Root for the files. Defaults to the current directory.
 - `-dryRun`: (Optional) Perform a dry run without renaming files.
 - `-recursive`: (Optional) Recursively rename files in subdirectories.
 - `-undo`: (Optional) Undo rename operations.
@@ -36,7 +36,7 @@ The main entry point for the application is in `cmd/gorename/main.go`. The tool 
 #### Basic Rename
 
 ```sh
-gorename -pattern "testfile(.*)" -replacement "replace$1" -path "./files"
+gorename -pattern "testfile(.*)" -replacement "replace$1" -root "./files"
 ```
 
 This command will rename all files matching `testfile(.*)` to `replace$1` in the `./files` directory.
@@ -44,7 +44,7 @@ This command will rename all files matching `testfile(.*)` to `replace$1` in the
 #### Dry Run
 
 ```sh
-gorename -pattern "testfile(.*)" -replacement "replace$1" -path "./files" -dryRun
+gorename -pattern "testfile(.*)" -replacement "replace$1" -root "./files" -dryRun
 ```
 
 This command will display the changes without actually renaming the files.
@@ -52,7 +52,7 @@ This command will display the changes without actually renaming the files.
 #### Recursive Rename
 
 ```sh
-gorename -pattern "testfile(.*)" -replacement "replace$1" -path "./files" -recursive
+gorename -pattern "testfile(.*)" -replacement "replace$1" -root "./files" -recursive
 ```
 
 This command will rename files matching the pattern in `./files` and all its subdirectories.
